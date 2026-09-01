@@ -1,21 +1,35 @@
 import express from 'express';
+import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
-
+import authRoutes from "./routes/authRoutes.js";
+import slotRoutes from "./routes/slotRoutes.js";
+import mentorRoutes from "./routes/mentorRoutes.js";
+import bookingRoutes from "./routes/bookingRoutes.js";
 
 dotenv.config();
+
+
 
 connectDB();
 
 
 const app = express();
 
+app.use(cors({
+  origin: "http://localhost:5173"
+}));
+
 app.use(express.json());
+app.use("/api/auth", authRoutes);
+app.use("/api/slots", slotRoutes);
+app.use("/api/mentors", mentorRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 app.get('/',(req,res)=>{
     res.send("Server is ready")
 })
-console.log("MONGO_URI:", process.env.MONGO_URI);
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
