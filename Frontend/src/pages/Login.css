@@ -1,0 +1,174 @@
+/* Main page layout */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background-color: #f7f5ff;
+  font-family: Arial, sans-serif;
+}
+
+/* Left section */
+.login-left {
+  width: 50%;
+  background: linear-gradient(135deg, #6c4cf1, #4930bd);
+  color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.login-left h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.login-intro {
+  max-width: 450px;
+  margin: auto 0;
+}
+
+.login-intro h2 {
+  font-size: 42px;
+  margin-bottom: 18px;
+}
+
+.login-intro p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #eeeaff;
+}
+
+/* Right section */
+.login-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Login form card */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(45, 30, 100, 0.1);
+  box-sizing: border-box;
+}
+
+.login-card h2 {
+  color: #20213a;
+  font-size: 30px;
+  margin: 0 0 10px;
+}
+
+.login-subtitle {
+  color: #77778a;
+  margin-bottom: 30px;
+}
+
+/* Input labels */
+.login-card label {
+  display: block;
+  margin-bottom: 8px;
+  color: #33334a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Input fields */
+.login-card input {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 22px;
+  border: 1px solid #dedbea;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.login-card input:focus {
+  border-color: #6c4cf1;
+  box-shadow: 0 0 0 3px rgba(108, 76, 241, 0.1);
+}
+
+/* Login button */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #6c4cf1;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #5135d0;
+}
+
+/* Register text and button */
+.register-text {
+  margin-top: 24px;
+  text-align: center;
+  color: #77778a;
+  font-size: 14px;
+}
+
+.register-button {
+  border: none;
+  background: none;
+  color: #6c4cf1;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  text-decoration: underline;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+  }
+
+  .login-left {
+    min-height: 240px;
+    padding: 28px;
+  }
+
+  .login-intro {
+    margin: 40px 0 10px;
+  }
+
+  .login-intro h2 {
+    font-size: 30px;
+  }
+
+  .login-intro p {
+    font-size: 15px;
+  }
+
+  .login-right {
+    padding: 25px 18px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+  }
+}

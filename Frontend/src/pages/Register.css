@@ -1,0 +1,321 @@
+.register-page {
+min-height: 100vh;
+display: flex;
+font-family: "Segoe UI", Arial, sans-serif;
+background: #f7f7fc;
+color: #20213a;
+}
+
+/* Left branding section */
+.register-left {
+width: 40%;
+min-height: 100vh;
+box-sizing: border-box;
+padding: 42px 48px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+color: white;
+background: linear-gradient(145deg, #4f46e5, #6d28d9 60%, #7c3aed);
+}
+
+.register-brand {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.register-logo {
+width: 44px;
+height: 44px;
+display: grid;
+place-items: center;
+border-radius: 13px;
+background: white;
+color: #5b35d5;
+font-size: 25px;
+font-weight: 800;
+}
+
+.register-brand h1 {
+margin: 0;
+font-size: 25px;
+letter-spacing: -0.7px;
+}
+
+.register-brand h1 span {
+color: #ddd6fe;
+font-size: 15px;
+}
+
+.register-intro {
+max-width: 430px;
+margin: 55px 0;
+}
+
+.register-badge {
+display: inline-block;
+padding: 9px 12px;
+border: 1px solid rgba(255, 255, 255, 0.3);
+border-radius: 20px;
+font-size: 10px;
+letter-spacing: 1.2px;
+}
+
+.register-intro h2 {
+margin: 25px 0 15px;
+font-size: clamp(32px, 3.2vw, 46px);
+line-height: 1.15;
+letter-spacing: -1.2px;
+}
+
+.register-intro > p {
+color: #ede9fe;
+font-size: 15px;
+line-height: 1.8;
+}
+
+.register-benefits {
+display: grid;
+gap: 25px;
+margin-top: 38px;
+}
+
+.register-benefit {
+display: flex;
+align-items: flex-start;
+gap: 15px;
+}
+
+.register-benefit > span {
+flex-shrink: 0;
+padding: 10px;
+border-radius: 10px;
+background: rgba(255, 255, 255, 0.15);
+font-size: 13px;
+font-weight: 700;
+}
+
+.register-benefit h3 {
+margin: 0 0 5px;
+font-size: 15px;
+}
+
+.register-benefit p {
+margin: 0;
+color: #ede9fe;
+font-size: 13px;
+line-height: 1.6;
+}
+
+.register-footer {
+margin: 0;
+color: #ede9fe;
+font-size: 12px;
+}
+
+/* Right form section */
+.register-right {
+flex: 1;
+min-width: 0;
+padding: 40px 28px;
+display: flex;
+justify-content: center;
+align-items: center;
+box-sizing: border-box;
+}
+
+.register-card {
+width: 100%;
+max-width: 460px;
+padding: 36px;
+box-sizing: border-box;
+border: 1px solid #eeedf6;
+border-radius: 20px;
+background: white;
+box-shadow: 0 15px 45px rgba(42, 31, 91, 0.07);
+}
+
+.register-heading {
+margin-bottom: 26px;
+}
+
+.register-eyebrow {
+margin: 0 0 10px;
+color: #6d4aff;
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1.3px;
+}
+
+.register-heading h2 {
+margin: 0 0 9px;
+font-size: 29px;
+letter-spacing: -0.8px;
+color: #5b45e7;
+}
+
+.register-heading > p:last-child {
+margin: 0;
+color: #323684;
+font-size: 13px;
+line-height: 1.6;
+}
+
+.register-form {
+display: grid;
+gap: 17px;
+}
+
+.register-field {
+display: grid;
+gap: 7px;
+}
+
+.register-field label {
+color: #36364d;
+font-size: 12px;
+font-weight: 700;
+}
+
+.register-field input,
+.register-field select {
+width: 100%;
+min-height: 45px;
+padding: 0 13px;
+box-sizing: border-box;
+border: 1px solid #e2e2ed;
+border-radius: 9px;
+outline: none;
+background: #fff;
+color: #292941;
+font-family: inherit;
+font-size: 13px;
+transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.register-field input::placeholder {
+color: #a1a1b2;
+}
+
+.register-field input:focus,
+.register-field select:focus {
+border-color: #7455ee;
+box-shadow: 0 0 0 3px rgba(116, 85, 238, 0.12);
+}
+
+.register-role-fields {
+display: grid;
+gap: 17px;
+padding: 16px;
+border: 1px solid #ece8ff;
+border-radius: 12px;
+background: #faf9ff;
+}
+
+.register-submit {
+min-height: 48px;
+margin-top: 4px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border: none;
+border-radius: 10px;
+background: linear-gradient(100deg, #5b45e7, #7846df);
+color: white;
+font-family: inherit;
+font-size: 14px;
+font-weight: 700;
+cursor: pointer;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.register-submit:hover {
+transform: translateY(-1px);
+box-shadow: 0 8px 18px rgba(91, 69, 231, 0.25);
+}
+
+.register-submit span {
+font-size: 19px;
+}
+
+.register-login-text {
+margin: 5px 0 0;
+color: #77788d;
+text-align: center;
+font-size: 12px;
+}
+
+.register-login-link {
+padding: 0;
+border: none;
+background: transparent;
+color: #6746e8;
+font-family: inherit;
+font-size: inherit;
+font-weight: 800;
+cursor: pointer;
+}
+
+.register-login-link:hover {
+text-decoration: underline;
+}
+
+/* Tablet and mobile */
+@media (max-width: 900px) {
+.register-left {
+width: 35%;
+padding: 32px 24px;
+}
+
+.register-brand h1 {
+font-size: 21px;
+}
+
+.register-card {
+padding: 28px 23px;
+}
+}
+
+@media (max-width: 680px) {
+.register-page {
+flex-direction: column;
+}
+
+.register-left {
+width: 100%;
+min-height: auto;
+padding: 28px 24px;
+}
+
+.register-intro {
+margin: 35px 0 20px;
+}
+
+.register-intro h2 {
+font-size: 32px;
+}
+
+.register-benefits {
+gap: 18px;
+margin-top: 25px;
+}
+
+.register-footer {
+margin-top: 25px;
+}
+
+.register-right {
+padding: 28px 16px;
+}
+
+.register-card {
+max-width: 480px;
+padding: 25px 20px;
+}
+
+.register-heading h2 {
+font-size: 25px;
+}
+}

@@ -27,6 +27,12 @@ export const register = async (req, res) => {
             );
         }
 
+        if (!["student", "alumni"].includes(role)) {
+            return res.status(403).json(
+                new ApiResponse(403, "Admin registration is not allowed.")
+            );
+        }
+
         // STEP 3: Student validation
         if (role === "student") {
             if (!branch || !currentYear || !graduationYear) {
@@ -46,7 +52,10 @@ export const register = async (req, res) => {
         }
 
         // STEP 5: Check if user already exists
-        const existingUser = await User.findOne({ email });
+      
+         const existingUser = await User.findOne({
+            email: email.toLowerCase().trim()
+        });
 
         if (existingUser) {
             return res.status(409).json(
@@ -57,7 +66,7 @@ export const register = async (req, res) => {
 
           const user = await User.create({
             name,
-            email,
+            email: email.toLowerCase().trim(),
             password: hashedPassword,
             role,
             college,
@@ -69,22 +78,13 @@ export const register = async (req, res) => {
         });
 
          return res.status(201).json(
-            new ApiResponse(201, "User Registered Successfully", user)
+            new ApiResponse(201, "User Registered Successfully",{
+                 _id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role
+            })
         );
-
-        // return res.status(200).json(
-        // new ApiResponse(
-        // 200,
-        // "Password Hashed Successfully",
-        // {
-        //     hashedPassword
-        // }
-        // )
-        // );
-    
-        // return res.status(200).json(
-        //     new ApiResponse(200, "Validation Successful")
-        // );
 
     } catch (error) {
         return res.status(500).json({
@@ -130,6 +130,11 @@ if (!isPasswordMatch) {
     );
 }
 
+if (user.isBlocked) {
+    return res.status(403).json(
+        new ApiResponse(403, "Your account has been blocked.")
+    );
+}
 const token = generateToken(user._id);
 
 return res.status(200).json(
@@ -174,4 +179,50 @@ export const getProfile = async (req, res) => {
         )
     );
 
+};
+export const updateProfile = async (req, res) => {
+    try {
+        const {
+            name,
+            bio,
+            skills,
+            company,
+            designation,
+            college,
+            linkedInProfile,
+            githubProfile
+        } = req.body;
+
+        const user = await User.findById(req.user._id).select("-password");
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            });
+        }
+
+        user.name = name || user.name;
+        user.bio = bio || "";
+        user.skills = skills || [];
+        user.company = company || "";
+        user.designation = designation || "";
+        user.college = college || "";
+        user.linkedInProfile = linkedInProfile || "";
+        user.githubProfile = githubProfile || "";
+
+        const updatedUser = await user.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Profile updated successfully",
+            data: updatedUser
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
 };

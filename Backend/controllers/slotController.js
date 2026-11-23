@@ -62,3 +62,78 @@ export const getAvailableSlots = async (req, res) => {
     });
   }
 };
+
+export const getMySlots = async (req, res) => {
+    try {   
+        const slots = await Slot.find({
+            mentor: req.user._id
+        });
+        return res.status(200).json({
+            success: true,
+            data: slots
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
+
+ 
+export const deleteSlot = async (req, res) => {
+    try {
+        const slot = await Slot.findById(req.params.id);
+        if (!slot) {
+            return res.status(404).json({
+                success: false,
+                message: "Slot not found"
+            });
+        }
+        if (slot.mentor.toString() !== req.user._id.toString()) {
+            return res.status(403).json({
+                success: false,
+                message: "You are not the owner of this slot"
+            });
+        }
+        if (slot.status === "booked") {
+            return res.status(400).json({
+                success: false,
+                message: "Booked slot cannot be deleted"
+            });
+        }
+
+
+        await Slot.findByIdAndDelete(req.params.id);
+        return res.status(200).json({
+            success: true,
+            message: "Slot deleted successfully"
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
+
+export const getMentorAvailableSlots = async (req, res) => {
+  try {
+    const { mentorId } = req.params;
+
+    const slots = await Slot.find({
+      mentor: mentorId,
+      status: "available",
+    }).sort({ date: 1, startTime: 1 });
+
+    return res.status(200).json({
+      success: true,
+      data: slots,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};

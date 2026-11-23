@@ -95,10 +95,58 @@ export const getMentorBookings = async (req, res) => {
   }
 };
 
+export const completeBooking = async (req, res) => {
+  try {
+    const booking = await Booking.findById(req.params.id);
+
+    if (!booking) {
+      return res.status(404).json({
+        success: false,
+        message: "Booking not found"
+      });
+    }
+
+    if (booking.mentor.toString() !== req.user._id.toString()) {
+      return res.status(403).json({
+        success: false,
+        message: "You are not allowed to complete this booking"
+      });
+    }
+
+    if (booking.status !== "confirmed") {
+      return res.status(400).json({
+        success: false,
+        message: "Only confirmed bookings can be completed"
+      });
+    }
+
+    booking.status = "completed";
+    await booking.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Booking completed successfully"
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
 export const cancelBooking = async (req, res) => {
   try {
     const bookingId = req.params.id;
     const booking = await Booking.findById(bookingId);
+
+    if (booking.student.toString() !== req.user._id.toString()) {
+      return res.status(403).json({
+        success: false,
+        message: "You are not allowed to cancel this booking"
+      });
+    }
 
     if (!booking) {
       return res.status(404).json({

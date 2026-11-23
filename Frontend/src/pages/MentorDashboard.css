@@ -1,0 +1,313 @@
+/* Main Dashboard */
+.mentor-dashboard {
+  min-height: 100vh;
+  background: #f5f7fc;
+  color: #1e293b;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.mentor-navbar {
+  background: #ffffff;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+}
+
+.mentor-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4f46e5;
+  margin: 0;
+}
+
+.mentor-logout {
+  background: #ffffff;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mentor-logout:hover {
+  background: #fef2f2;
+}
+
+/* Main Content */
+.mentor-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 35px 24px;
+}
+
+.mentor-welcome {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  padding: 32px;
+  border-radius: 18px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.16);
+}
+
+.mentor-welcome h1 {
+  margin: 0 0 12px;
+  font-size: 30px;
+}
+
+.mentor-welcome p {
+  margin: 0;
+  line-height: 1.6;
+  color: #e0e7ff;
+}
+
+/* Sections */
+.mentor-section {
+  background: #ffffff;
+  padding: 26px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+}
+
+.mentor-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.mentor-section h2 {
+  font-size: 21px;
+  margin: 0 0 20px;
+  color: #172033;
+}
+
+.mentor-section-header h2 {
+  margin-bottom: 0;
+}
+
+/* Forms */
+.mentor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mentor-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mentor-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mentor-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.mentor-form input,
+.mentor-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #dbe2ef;
+  border-radius: 9px;
+  font-size: 14px;
+  color: #1e293b;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.mentor-form input:focus,
+.mentor-form textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.mentor-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* Buttons */
+.mentor-primary-button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mentor-primary-button:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.mentor-secondary-button {
+  background: #eef2ff;
+  color: #4338ca;
+  border: 1px solid #c7d2fe;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mentor-secondary-button:hover {
+  background: #e0e7ff;
+}
+
+.mentor-danger-button {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mentor-danger-button:hover {
+  background: #ffe4e6;
+}
+
+/* Cards */
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.mentor-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf3;
+  border-radius: 13px;
+  padding: 22px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.mentor-card:hover {
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+  transform: translateY(-2px);
+}
+
+.mentor-card h3 {
+  margin: 0 0 15px;
+  color: #1e293b;
+  font-size: 18px;
+}
+
+.mentor-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 9px 0;
+}
+
+.mentor-card strong {
+  color: #334155;
+}
+
+.mentor-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* Status badges */
+.mentor-status {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.mentor-status.available,
+.mentor-status.confirmed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.mentor-status.booked {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.mentor-status.completed {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.mentor-status.cancelled {
+  background: #ffe4e6;
+  color: #be123c;
+}
+
+/* Empty and Loading States */
+.mentor-empty-message {
+  text-align: center;
+  padding: 28px 15px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .mentor-navbar {
+    padding: 16px 5%;
+  }
+
+  .mentor-logo {
+    font-size: 20px;
+  }
+
+  .mentor-content {
+    padding: 22px 15px;
+  }
+
+  .mentor-welcome {
+    padding: 24px;
+  }
+
+  .mentor-welcome h1 {
+    font-size: 25px;
+  }
+
+  .mentor-section {
+    padding: 20px;
+  }
+
+  .mentor-grid,
+  .mentor-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mentor-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
