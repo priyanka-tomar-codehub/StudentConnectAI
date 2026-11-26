@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import MentorProfile from "./pages/MentorProfile";
 import MockInterview from "./pages/MockInterview";
 import ChatPage from "./pages/ChatPage";
+import ManageStudents from "./pages/admin/ManageStudents";
 
 function App() {
   return (
@@ -53,8 +54,23 @@ function App() {
         }
       />
  
-      <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute allowedRole="admin">
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
 
+        <Route
+          path="/admin/students"
+          element={
+            <ProtectedRoute allowedRole="admin">
+              <ManageStudents />
+            </ProtectedRoute>
+          }
+        />
        <Route
     path="/chat/:chatId"
     element={
