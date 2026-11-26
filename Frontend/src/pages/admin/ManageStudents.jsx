@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import AdminLayout from '../../components/admin/AdminLayout';
 import api from '../../services/api';
+import "./ManageStudents.css";
 
 const ManageStudents = () => {
   const [students, setStudents] = useState([]);

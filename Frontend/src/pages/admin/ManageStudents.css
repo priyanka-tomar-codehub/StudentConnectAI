@@ -1,0 +1,148 @@
+.manage-students {
+    width: 100%;
+}
+
+.manage-students h2 {
+    font-size: 26px;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.manage-students > p {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* Search Input */
+.student-search {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    margin: 15px 0 25px;
+}
+
+.student-search:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Table Container */
+.students-table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Students Table */
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+.students-table th,
+.students-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.students-table th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 600;
+}
+
+.students-table td {
+    color: #475569;
+}
+
+.students-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Status */
+.student-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.student-status.active {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.student-status.blocked {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+/* Action Buttons */
+.block-btn,
+.unblock-btn {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.block-btn {
+    background: #dc2626;
+}
+
+.block-btn:hover {
+    background: #b91c1c;
+}
+
+.unblock-btn {
+    background: #16a34a;
+}
+
+.unblock-btn:hover {
+    background: #15803d;
+}
+
+.block-btn:disabled,
+.unblock-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Error */
+.student-error {
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .manage-students h2 {
+        font-size: 22px;
+    }
+
+    .student-search {
+        max-width: 100%;
+    }
+
+    .students-table th,
+    .students-table td {
+        padding: 12px;
+    }
+}
