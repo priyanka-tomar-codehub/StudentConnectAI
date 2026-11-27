@@ -119,3 +119,72 @@ export const toggleStudentBlock = async (req, res) => {
         });
     }
 };
+
+// Get all alumni
+export const getAllAlumni = async (req, res) => {
+    try {
+        const { search } = req.query;
+
+        let filter = { role: "alumni" };
+
+        if (search) {
+            filter.$or = [
+                { name: { $regex: search, $options: "i" } },
+                { email: { $regex: search, $options: "i" } },
+                { company: { $regex: search, $options: "i" } },
+                { designation: { $regex: search, $options: "i" } }
+            ];
+        }
+
+        const alumni = await User.find(filter)
+            .select("-password")
+            .sort({ createdAt: -1 });
+
+        return res.status(200).json({
+            success: true,
+            message: "Alumni fetched successfully",
+            data: alumni
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
+
+
+// Block or Unblock Alumni
+export const toggleAlumniBlock = async (req, res) => {
+    try {
+        const alumni = await User.findOne({
+            _id: req.params.id,
+            role: "alumni"
+        });
+
+        if (!alumni) {
+            return res.status(404).json({
+                success: false,
+                message: "Alumni not found"
+            });
+        }
+
+        alumni.isBlocked = !alumni.isBlocked;
+        await alumni.save();
+
+        return res.status(200).json({
+            success: true,
+            message: alumni.isBlocked
+                ? "Alumni blocked successfully"
+                : "Alumni unblocked successfully",
+            data: { isBlocked: alumni.isBlocked }
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};

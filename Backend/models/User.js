@@ -141,6 +141,12 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
 
+    verificationStatus: {
+    type: String,
+    enum: ["pending", "verified", "rejected"],
+    default: "pending",
+    },
+    
     rating: {
       type: Number,
       default: 0,
