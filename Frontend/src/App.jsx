@@ -11,6 +11,7 @@ import MockInterview from "./pages/MockInterview";
 import ChatPage from "./pages/ChatPage";
 import ManageStudents from "./pages/admin/ManageStudents";
 import ManageAlumni from "./pages/admin/ManageAlumni";
+import VerifyAlumni from "./pages/admin/VerifyAlumni";
 
 function App() {
   return (
@@ -88,6 +89,15 @@ function App() {
                 <ManageAlumni />
             </ProtectedRoute>
         }
+    />
+
+    <Route
+    path="/admin/verify-alumni"
+    element={
+        <ProtectedRoute allowedRole="admin">
+            <VerifyAlumni />
+        </ProtectedRoute>
+    }
     />
                   
       </Routes>
