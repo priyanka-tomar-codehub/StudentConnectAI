@@ -5,7 +5,9 @@ import {
     getAllStudents,
     toggleStudentBlock,
     getAllAlumni,
-    toggleAlumniBlock
+    toggleAlumniBlock,
+    getPendingAlumni,
+    updateAlumniVerification
 } from "../controllers/adminController.js";
 
 
@@ -25,5 +27,19 @@ router.patch(
     protect,
     adminOnly,
     toggleAlumniBlock
+);
+
+router.get(
+    "/pending-alumni",
+    protect,
+    adminOnly,
+    getPendingAlumni
+);
+
+router.patch(
+    "/alumni/:id/verification",
+    protect,
+    adminOnly,
+    updateAlumniVerification
 );
 export default router;

@@ -1,0 +1,133 @@
+.manage-alumni {
+    width: 100%;
+}
+
+.manage-alumni h2 {
+    font-size: 26px;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.manage-alumni > p {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.alumni-search {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    margin: 15px 0 25px;
+}
+
+.alumni-search:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.alumni-table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.alumni-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 950px;
+}
+
+.alumni-table th,
+.alumni-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.alumni-table th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 600;
+}
+
+.alumni-table td {
+    color: #475569;
+}
+
+.alumni-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.alumni-verification,
+.alumni-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.alumni-verification.verified,
+.alumni-status.active {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.alumni-verification.pending {
+    color: #b45309;
+    background: #fef3c7;
+}
+
+.alumni-status.blocked {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+.alumni-block-btn,
+.alumni-unblock-btn {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.alumni-block-btn {
+    background: #dc2626;
+}
+
+.alumni-unblock-btn {
+    background: #16a34a;
+}
+
+.alumni-block-btn:disabled,
+.alumni-unblock-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.alumni-error {
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .manage-alumni h2 {
+        font-size: 22px;
+    }
+
+    .alumni-search {
+        max-width: 100%;
+    }
+}

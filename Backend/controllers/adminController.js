@@ -188,3 +188,78 @@ export const toggleAlumniBlock = async (req, res) => {
         });
     }
 };
+
+// Get pending alumni for verification
+export const getPendingAlumni = async (req, res) => {
+    try {
+        const alumni = await User.find({
+            role: "alumni",
+            isVerified: false,
+            $or: [
+                { verificationStatus: "pending" },
+                { verificationStatus: { $exists: false } }
+            ]
+        })
+        .select("-password")
+        .sort({ createdAt: -1 });
+
+        return res.status(200).json({
+            success: true,
+            message: "Pending alumni fetched successfully",
+            data: alumni
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
+// Update alumni verification status
+export const updateAlumniVerification = async (req, res) => {
+    try {
+        const { status } = req.body;
+
+        if (!["verified", "rejected"].includes(status)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid verification status"
+            });
+        }
+
+        const alumni = await User.findOne({
+            _id: req.params.id,
+            role: "alumni"
+        });
+
+        if (!alumni) {
+            return res.status(404).json({
+                success: false,
+                message: "Alumni not found"
+            });
+        }
+
+        alumni.verificationStatus = status;
+        alumni.isVerified = status === "verified";
+
+        await alumni.save();
+
+        return res.status(200).json({
+            success: true,
+            message: status === "verified"
+                ? "Alumni verified successfully"
+                : "Alumni rejected successfully",
+            data: {
+                verificationStatus: alumni.verificationStatus,
+                isVerified: alumni.isVerified
+            }
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+};

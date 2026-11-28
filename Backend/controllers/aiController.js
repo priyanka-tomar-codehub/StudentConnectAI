@@ -74,7 +74,7 @@ Return ONLY a numbered list containing exactly 5 questions.
     const ai = getAI();
 
    const response = await ai.models.generateContent({
-    model: "gemini-3.8-flash-lite",
+    model: "gemini-3.5-flash-lite",
     contents: prompt,
     
   });
@@ -152,7 +152,7 @@ Keep feedback simple, specific and concise.
 `;
     const ai = getAI();
     const response = await ai.models.generateContent({
-  model: "gemini-3.8-flash-lite",
+  model: "gemini-3.5-flash-lite",
   contents: prompt,
   config: {
     temperature: 0.3,

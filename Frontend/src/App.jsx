@@ -10,6 +10,7 @@ import MentorProfile from "./pages/MentorProfile";
 import MockInterview from "./pages/MockInterview";
 import ChatPage from "./pages/ChatPage";
 import ManageStudents from "./pages/admin/ManageStudents";
+import ManageAlumni from "./pages/admin/ManageAlumni";
 
 function App() {
   return (
@@ -72,14 +73,23 @@ function App() {
           }
         />
        <Route
-    path="/chat/:chatId"
-    element={
+          path="/chat/:chatId"
+          element={
         <ProtectedRoute allowedRole={["student", "alumni"]}>
             <ChatPage />
         </ProtectedRoute>
     }
 />
-              
+
+    <Route
+        path="/admin/alumni"
+        element={
+            <ProtectedRoute allowedRole="admin">
+                <ManageAlumni />
+            </ProtectedRoute>
+        }
+    />
+                  
       </Routes>
     </BrowserRouter>
   );
